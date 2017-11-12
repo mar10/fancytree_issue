@@ -1,0 +1,21 @@
+{
+  "name": "wop",
+  "description": "",
+  "main": "main.js",
+  "authors": [
+    "allavoie <alain.lavoie@dexto.ca>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/allavoie/wop",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "^1.12.1",
+    "bootstrap": "^3.3.7"
+  }
+}

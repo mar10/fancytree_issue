@@ -1,0 +1,33 @@
+{
+  "name": "wop",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "jpeg-exif": "^1.0.6",
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1",
+    "jquery.fancytree": "^2.24.0",
+    "unique-random": "^1.0.0",
+    "woimg": "git+https://github.com/allavoie/woimg.git"
+  },
+  "devDependencies": {
+    "electron": "1.7.8",
+    "mocha": "4.0.1"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --ui tdd \"**/*.unit.js\"",
+    "myapp": "./node_modules/.bin/electron .",
+    "myappdbg": "./node_modules/.bin/electron --inspect-brk=5858 ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allavoie/wop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allavoie/wop/issues"
+  },
+  "homepage": "https://github.com/allavoie/wop#readme"
+}
