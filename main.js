@@ -78,7 +78,3 @@ app.on("activate", () => {
   }
 })
 
-setTimeout(()=>{
-  win.webContents.send("updatePhoto", {hey: "good"});
-}, 5000);
-
