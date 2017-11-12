@@ -1,33 +1,25 @@
 {
-  "name": "wop",
+  "name": "fancytree_issue",
   "version": "0.0.1",
   "description": "",
   "main": "main.js",
+  "scripts": {
+    "clean": "rm -f -r node_modules && rm -f -r bower_components",
+    "install_all": "npm run clean && npm install && bower install && npm run remove_default_fancytree && npm run install_dev_fancytree",
+    "remove_default_fancytree": "cd node_modules/ && rm -f -r jquery.fancytree",
+    "install_dev_fancytree": "cd node_modules/ && mkdir jquery.fancytree && cd jquery.fancytree && git clone https://github.com/mar10/fancytree.git --branch v2.24.0 && mv fancytree/* .",
+    "test": "./node_modules/mocha/bin/mocha --ui tdd \"**/*.unit.js\"",
+    "myapp": "./node_modules/.bin/electron .",
+    "myappdbg": "./node_modules/.bin/electron --inspect-brk=5858 ."
+  },
   "dependencies": {
-    "jpeg-exif": "^1.0.6",
-    "jquery": "^3.2.1",
-    "jquery-ui": "^1.12.1",
-    "jquery.fancytree": "^2.24.0",
-    "unique-random": "^1.0.0",
-    "woimg": "git+https://github.com/allavoie/woimg.git"
+    "jquery": "3.2.1",
+    "jquery-ui": "1.12.1",
+    "jquery.fancytree": "2.24.0"
   },
   "devDependencies": {
     "electron": "1.7.8",
     "mocha": "4.0.1"
   },
-  "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --ui tdd \"**/*.unit.js\"",
-    "myapp": "./node_modules/.bin/electron .",
-    "myappdbg": "./node_modules/.bin/electron --inspect-brk=5858 ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/allavoie/wop.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/allavoie/wop/issues"
-  },
-  "homepage": "https://github.com/allavoie/wop#readme"
+  "license": "ISC"
 }

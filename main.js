@@ -2,8 +2,6 @@ const {app, BrowserWindow, ipcMain} = require("electron");
 const abc = require("electron");
 const path = require("path");
 const url = require("url");
-const lib = require("./index.js");
-const explorer = require("./explorer").fromServer.async;
 
 // Keep a global reference of the window object, if you don"t, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -84,30 +82,3 @@ setTimeout(()=>{
   win.webContents.send("updatePhoto", {hey: "good"});
 }, 5000);
 
-// In this file you can include the rest of your app"s specific main process
-// code. You can also put them in separate files and require them here.
-
-async function dirContentService(sender, msg){
-    try {
-        const dirContent = await explorer.getContentDir(sender, msg);
-        const flatten = dirContent.reduce((cumulator, file, origin)=> {
-            const stat = file.stat;
-            const funcResults = {
-                isFile: stat.isFile(),
-                isDirectory: stat.isDirectory(),
-                isCharacterDevice: stat.isCharacterDevice(),
-                isFIFO: stat.isFIFO(),
-                isSocket: stat.isSocket()
-            };
-            Object.assign(stat, funcResults);
-            cumulator.push(file);
-            return cumulator;
-        }, []);
-        win.webContents.send(msg.id, { dirContent });
-    } catch(err){
-        debugger;
-        win.webContents.send(msg.id, { err });
-    }
-};
-
-ipcMain.on("dirContent",dirContentService);

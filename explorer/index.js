@@ -1,16 +1,5 @@
 "use strict";
 const $ = require("jquery");
-const lib = require("./explorer.service.js");
-
-async function getContentDir(sender, msg){
-    let dirContent=null;
-    try {
-        dirContent = await lib.readDirContent(msg.param.path);
-    } catch (err){
-        console.log("Cannot readDirContent(): err " + err);
-    }
-    return dirContent;
-}
 
 function createComponent(id, source, fetchNode, onClick){
     const treeConfig = {
@@ -53,11 +42,6 @@ function createComponent(id, source, fetchNode, onClick){
 
 
 module.exports = {
-    fromServer: {
-        "async": {
-            getContentDir
-        }
-    },
     fromWebPage: {
         "async": {
         },
