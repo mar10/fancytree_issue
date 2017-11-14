@@ -2,9 +2,12 @@
 const $ = require("jquery");
 window.jQuery = $;
 window.$ = $;
-const jquery_ui = require('./bower_components/jquery-ui/jquery-ui');
-const explorerLoader = require("jquery.fancytree/dist/jquery.fancytree-all-deps.min");
+// const jquery_ui = require('./bower_components/jquery-ui/jquery-ui');
+// const explorerLoader = require("jquery.fancytree/dist/jquery.fancytree-all-deps.min");
+const explorerLoader = require("jquery.fancytree");
 const explorer = require("./explorer").fromWebPage;
+
+console.log("explorerLoader", explorerLoader);
 
 function getTreeSourceFromDirContent(){
     const source = [
