@@ -13,6 +13,7 @@
     "myappdbg": "./node_modules/.bin/electron --inspect-brk=5858 ."
   },
   "dependencies": {
+    "bower": "^1.8.2",
     "jquery": "3.2.1",
     "jquery-ui": "1.12.1",
     "jquery.fancytree": "2.24.0"
